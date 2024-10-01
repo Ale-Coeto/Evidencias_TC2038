@@ -11,20 +11,22 @@ namespace algorithms {
     
     // Given a string s, return the indices correspoding to the longest substring within the first string provided
     pair<int, int> longestSubstring(string s1, string s2){
-        vector<vector<int>> dp(s1.size() + 1, vector<int>(s2.size() + 1, 0));
+        vector<int> dp(s2.size() + 1, 0);
         int maxLen = 0;
         pair<int, int> ans = {0, 0};
 
         for(int i = 0; i < s1.size(); i++){
+            vector<int> nextRow(s2.size() + 1, 0);
             for(int j = 0; j < s2.size(); j++){
                 if(s1[i] == s2[j]){
-                    dp[i + 1][j + 1] = dp[i][j] + 1;
-                    if(dp[i + 1][j + 1] > maxLen){
-                        maxLen = dp[i + 1][j + 1];
+                    nextRow[j + 1] = dp[j] + 1;
+                    if(nextRow[j + 1] > maxLen){
+                        maxLen = nextRow[j + 1];
                         ans = {i - maxLen + 1, i};
                     }
                 }
             }
+            dp = nextRow;
         }
 
         // 1-indexed
