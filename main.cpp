@@ -11,8 +11,18 @@ using namespace std;
 
 int main() { 
     string test = FileReader::readFile("transmission1.txt");
-    // cout << test << endl; 
-    vector<int> pre = KMP::preprocess(test);
+    string x = "abcdajsjsjsbvbca";
+    string pat = "bac";
+
+    vector<int> pre = KMP::preprocess(pat);
+
+    vector<int> result = KMP::containsText(x,pat,pre);
+
+    for (auto i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
 
     return 0;
 }

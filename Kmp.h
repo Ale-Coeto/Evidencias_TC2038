@@ -6,21 +6,38 @@
 using namespace std;
 
 class KMP {
+
     public:
         /*
             KMP algorithm to check if a text is contained in anotherone
-            Params: text (string that could contain other text)
-                    lps (vector of the string that could be contained on text)
-            Returns: vector (positions where the string is contained int text)
+            Params: text (string that could contain a pattern)
+                    pattern (string that could be contained in text)
+                    lps (vector of the pattern that could be contained on text)
+            Returns: vector (positions where the pattern is contained int text)
         */ 
-        static vector<int> containsText(string & text, vector<int> & lps) {
-            return vector<int> ();
+        static vector<int> containsText(string & text, string & pattern, vector<int> & lps) {
+            vector<int> result;
+            int i = 0, j = 0;
+            while (i < text.length()) {
+                if (text[i] == pattern[j]) {
+                    i++;
+                    j++;
+                    if (j == pattern.length()) {
+                        result.push_back(i - pattern.length());
+                    }
+                } else if (j == 0) {
+                    i++;
+                } else {
+                    j = lps[j-1];
+                }
+            }
+            return result;
         }
 
         /* 
             Algorithm to obtain the longest proper prefix vector
             Params: text (string to be preprocessed)
-            Return: vector (vector with longest prefix values)
+            Returns: vector (vector with longest prefix values)
         */
         static vector<int> preprocess(string text) {
             vector<int> lps(text.size(), 0);
@@ -34,11 +51,6 @@ class KMP {
                     i--;
                 }
             }
-
-            for (int i = 0; i < text.size(); i++) {
-                cout << text[i] << " " << lps[i] << endl;
-            }
-            cout << "END \n";
 
             return lps;
         }
