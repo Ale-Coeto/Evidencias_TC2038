@@ -1,7 +1,9 @@
 // Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
-// Última modificación: Martes 1 de Octubre
+// Última modificación: Domingo 6 de Octubre
 // Programa para leer archivos de transmisión y comprobar que no contengan código malicioso,
 // revisar similitud y comprobar palíndromos
+
+// Las explicaciones de la complejidad temporal vienen en cada una de las implementaciones de los algoritmos
 
 #include <iostream>
 #include "FileReader.h"

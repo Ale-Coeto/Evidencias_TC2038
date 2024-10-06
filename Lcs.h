@@ -10,21 +10,28 @@ using namespace std;
 namespace algorithms
 {
 
-    // Given a string s, return the indices correspoding to the longest substring within the first string provided
+    // Given a string s, return the indices correspoding to the longest common substring.
+    // The indices are 1-indexed and with respect to the first string
+    // Time complexity: O(n*m), where n and m are the sizes of the strings
+    // Space complexity: O(m), where m is the size of the second string
     pair<int, int> longestCommonSubstring(string s1, string s2)
     {
+        // Vector to size of the longest common substring
         vector<int> dp(s2.size() + 1, 0);
         int maxLen = 0;
-        pair<int, int> ans = {-1, -1};
+        pair<int, int> ans = {-1, -1}; // 0-indexed
 
         for (int i = 0; i < s1.size(); i++)
         {
+            // Initialize vector for the current row.
             vector<int> nextRow(s2.size() + 1, 0);
             for (int j = 0; j < s2.size(); j++)
             {
+                // If the characters match, it means that the substring is extended by 1
                 if (s1[i] == s2[j])
                 {
                     nextRow[j + 1] = dp[j] + 1;
+                    // Update the max length and the indices, if needed
                     if (nextRow[j + 1] > maxLen)
                     {
                         maxLen = nextRow[j + 1];
@@ -32,9 +39,11 @@ namespace algorithms
                     }
                 }
             }
+            // Update dp vector
             dp = nextRow;
         }
 
+        // Throw exception if no common substring is found
         if (ans.first == -1 || ans.second == -1)
             throw std::invalid_argument("No se encontró un substring común");
 
@@ -43,6 +52,7 @@ namespace algorithms
     }
 };
 
+// tests con el archivo transmission1.txt y transmission2.txt
 namespace test
 {
     void lcs_test()

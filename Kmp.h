@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class KMP {
+namespace algorithms {
 
     public:
         /*
@@ -17,7 +17,7 @@ class KMP {
             Returns: vector (positions where the pattern is contained int text)
             Complexity: O(m + n)
         */ 
-        static vector<int> containsText(string & text, string & pattern, vector<int> & lps) {
+        vector<int> containsText(string & text, string & pattern, vector<int> & lps) {
             vector<int> result;
             int i = 0, j = 0;
             while (i < text.length()) {
@@ -42,7 +42,7 @@ class KMP {
             Returns: vector (vector with longest prefix values)
             Complexity: O(n)
         */
-        static vector<int> preprocess(string text) {
+        vector<int> preprocess(string text) {
             vector<int> lps(text.size(), 0);
             int j = 0;
 
