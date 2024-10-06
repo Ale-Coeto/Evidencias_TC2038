@@ -36,7 +36,7 @@ namespace algorithms
         }
 
         if (ans.first == -1 || ans.second == -1)
-            throw std::invalid_argument("No common substring found");
+            throw std::invalid_argument("No se encontró un substring común");
 
         // 1-indexed
         return {ans.first + 1, ans.second + 1};
