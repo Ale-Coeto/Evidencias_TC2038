@@ -19,14 +19,14 @@ void containedText(vector<string> &transmissions, vector<string> &mcodes)
 
     for (int i = 0; i < 3; i++)
     {
-        mcodesPre.push_back(KMP::preprocess(mcodes[i]));
+        mcodesPre.push_back(algorithms::preprocess(mcodes[i]));
     }
 
     for (auto transmission : transmissions)
     {
         for (int i = 0; i < mcodes.size(); i++)
         {
-            vector<int> result = KMP::containsText(transmission, mcodes[i], mcodesPre[i]);
+            vector<int> result = algorithms::containsText(transmission, mcodes[i], mcodesPre[i]);
 
             if (result.size() <= 0)
             {
