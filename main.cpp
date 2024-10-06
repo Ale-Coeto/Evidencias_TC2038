@@ -10,18 +10,41 @@
 using namespace std;
 
 int main() { 
-    string test = FileReader::readFile("transmission1.txt");
-    string x = "abcdajsjsjsbvbca";
-    string pat = "bac";
+    string mcode1 = FileReader::readFile("txts/mcode1.txt");
+    string mcode2 = FileReader::readFile("txts/mcode2.txt");
+    string mcode3 = FileReader::readFile("txts/mcode3.txt");
+    vector<string> mcodes = { mcode1, mcode2, mcode3 };
 
-    vector<int> pre = KMP::preprocess(pat);
+    string transmission1 = FileReader::readFile("txts/transmission1.txt");
+    string transmission2 = FileReader::readFile("txts/transmission2.txt");
+    vector<string> transmissions = { transmission1, transmission2 };
 
-    vector<int> result = KMP::containsText(x,pat,pre);
+    // Check if mcode is contained in transmission files
+    for (auto transmission : transmissions) {
+        for (auto mcode : mcodes) {
+            vector<int> pre = KMP::preprocess(mcode);
+            vector<int> result = KMP::containsText(transmission,mcode,pre);
 
-    for (auto i : result) {
-        cout << i << " ";
+            if (result.size() <= 0) {
+                cout << "False" << endl;
+            } else {
+                cout << "True ";
+                for (auto i : result) {
+                    cout << i << " ";
+                }
+                cout << endl;
+            }
+        }
     }
-    cout << endl;
+
+    // Palindrome
+
+    // LCS
+    
+    
+
+
+    
     
 
     return 0;
