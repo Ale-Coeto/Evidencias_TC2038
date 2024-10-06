@@ -9,21 +9,16 @@
 
 using namespace std;
 
-int main() { 
-    string mcode1 = FileReader::readFile("txts/mcode1.txt");
-    string mcode2 = FileReader::readFile("txts/mcode2.txt");
-    string mcode3 = FileReader::readFile("txts/mcode3.txt");
-    vector<string> mcodes = { mcode1, mcode2, mcode3 };
-
-    string transmission1 = FileReader::readFile("txts/transmission1.txt");
-    string transmission2 = FileReader::readFile("txts/transmission2.txt");
-    vector<string> transmissions = { transmission1, transmission2 };
-
-    // Check if mcode is contained in transmission files
+void containedText(vector<string> & transmissions, vector<string> & mcodes) {
+    vector<vector<int> > mcodesPre;
+    
+    for (int i = 0; i < 3; i++) {
+        mcodesPre.push_back(KMP::preprocess(mcodes[i]));
+    }
+  
     for (auto transmission : transmissions) {
-        for (auto mcode : mcodes) {
-            vector<int> pre = KMP::preprocess(mcode);
-            vector<int> result = KMP::containsText(transmission,mcode,pre);
+        for (int i = 0; i < mcodes.size(); i++) {
+            vector<int> result = KMP::containsText(transmission,mcodes[i],mcodesPre[i]);
 
             if (result.size() <= 0) {
                 cout << "False" << endl;
@@ -36,6 +31,22 @@ int main() {
             }
         }
     }
+}
+
+int main() { 
+    // Read input
+    string transmission1 = FileReader::readFile("txts/transmission1.txt");
+    string transmission2 = FileReader::readFile("txts/transmission2.txt");
+    vector<string> transmissions = { transmission1, transmission2 };
+    
+    string mcode1 = FileReader::readFile("txts/mcode1.txt");
+    string mcode2 = FileReader::readFile("txts/mcode2.txt");
+    string mcode3 = FileReader::readFile("txts/mcode3.txt");
+    vector<string> mcodes = { mcode1, mcode2, mcode3 };
+
+
+    // Check if mcode is contained in transmission files
+    containedText(transmissions, mcodes);
 
     // Palindrome
 

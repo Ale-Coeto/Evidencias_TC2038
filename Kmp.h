@@ -14,6 +14,7 @@ class KMP {
                     pattern (string that could be contained in text)
                     lps (vector of the pattern that could be contained on text)
             Returns: vector (positions where the pattern is contained int text)
+            Complexity: O(m + n)
         */ 
         static vector<int> containsText(string & text, string & pattern, vector<int> & lps) {
             vector<int> result;
@@ -38,6 +39,7 @@ class KMP {
             Algorithm to obtain the longest proper prefix vector
             Params: text (string to be preprocessed)
             Returns: vector (vector with longest prefix values)
+            Complexity: O(n)
         */
         static vector<int> preprocess(string text) {
             vector<int> lps(text.size(), 0);
