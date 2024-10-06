@@ -37,13 +37,13 @@ void containedText(vector<string> & transmissions, vector<string> & mcodes) {
 
 int main() { 
     // Read input
-    string transmission1 = FileReader::readFile("txts/transmission1.txt");
-    string transmission2 = FileReader::readFile("txts/transmission2.txt");
+    string transmission1 = FileReader::readFile("transmission1.txt");
+    string transmission2 = FileReader::readFile("transmission2.txt");
     vector<string> transmissions = { transmission1, transmission2 };
     
-    string mcode1 = FileReader::readFile("txts/mcode1.txt");
-    string mcode2 = FileReader::readFile("txts/mcode2.txt");
-    string mcode3 = FileReader::readFile("txts/mcode3.txt");
+    string mcode1 = FileReader::readFile("mcode1.txt");
+    string mcode2 = FileReader::readFile("mcode2.txt");
+    string mcode3 = FileReader::readFile("mcode3.txt");
     vector<string> mcodes = { mcode1, mcode2, mcode3 };
 
 
