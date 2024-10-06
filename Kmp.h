@@ -2,6 +2,7 @@
 #define KMP_
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
