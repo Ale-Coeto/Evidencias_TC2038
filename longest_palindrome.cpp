@@ -19,7 +19,7 @@ namespace palindrome {
         int right = 0, left; 
         int maxPalLength = 0, maxCenterIndex = 0; 
         int start = -1, end = -1, diff = -1; 
-        for (right = 2; right < n; right++) {
+        for (right = 1; right < n; right++) {
             left = 2 * centerIndex - right;
             int diff = rightIndex - right; 
             if(diff > 0){
