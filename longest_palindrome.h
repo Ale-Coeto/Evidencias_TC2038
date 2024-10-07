@@ -11,8 +11,12 @@ using namespace std;
 namespace algorithms
 {
 
+    // Given a string s, return the indices correspoding to the longest palindrome.
+    // Time complexity: O(n), where n is the size of the string
+    // Space complexity: O(n), where n is the size of the string
     pair<int, int> longestPalidrome(string s)
     {
+        // Declaration of necessary variables
         pair<int, int> ans = {0, 0};
         int n = 2 * s.size() + 1;
         vector<int> lenPalndrm(n, 0);
@@ -26,26 +30,31 @@ namespace algorithms
         {
             left = 2 * centerIndex - right;
             int diff = rightIndex - right;
+            // change right value to mirror value
             if (diff > 0)
             {
                 lenPalndrm[right] = min(lenPalndrm[left], diff);
             }
+            //increase recorded length of palindrome while bigger palindrome is being found
             while (((right + lenPalndrm[right]) < n && (right - lenPalndrm[right]) > 0) &&
                    (((right + lenPalndrm[right] + 1) % 2 == 0) ||
                     (s[(right + lenPalndrm[right] + 1) / 2] == s[(right - lenPalndrm[right] - 1) / 2])))
             {
                 lenPalndrm[right]++;
             }
+            // shift center if bigger palindrome found
             if (lenPalndrm[right] > lenPalndrm[maxCenterIndex])
             {
                 maxCenterIndex = right;
             }
+            //shift center and right according to the current palindrome
             if (right + lenPalndrm[right] > rightIndex)
             {
                 centerIndex = right;
                 rightIndex = right + lenPalndrm[right];
             }
         }
+        // Save variables to return value
         ans.first = (maxCenterIndex - lenPalndrm[maxCenterIndex]) / 2 + 1;
         ans.second = ans.first + lenPalndrm[maxCenterIndex] - 1;
         return ans;
@@ -53,6 +62,8 @@ namespace algorithms
 
 };
 
+
+//testing with transmission1 and transmission2
 namespace test
 {
     using namespace algorithms;
