@@ -38,7 +38,6 @@ set(TEST_FILES
     tests/test_fordFulkenson.cpp
     tests/test_tsp.cpp
     tests/test_central.cpp
-    tests/test_bfs.cpp
 )
 
 # Test executable

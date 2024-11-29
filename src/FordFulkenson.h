@@ -1,6 +1,7 @@
 /*
  * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
  * Última modificación: Domingo 29 de Noviembre
+ * Implementación del algoritmo de Ford Fulkenson para encontrar el flujo máximo en un grafo
  */
 
 #ifndef FORD_FULKENSON
