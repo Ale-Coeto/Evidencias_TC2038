@@ -47,7 +47,8 @@ namespace algorithms {
         return 0;
     }
 
-    /*
+    /** 
+        Algoritmo de Ford Fulkenson
         Complejidad: O(fe), donde f = max flow y e = número de edges
     */
     int maxflow(int s, int t, vector<vector<pair<int,int>>> & graph, vector<vector<int>> & capacity) {
