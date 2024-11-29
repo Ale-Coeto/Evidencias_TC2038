@@ -45,6 +45,8 @@ foreach(TEST_SRC ${TEST_FILES})
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})   
 endforeach()
 
+configure_file(${CMAKE_SOURCE_DIR}/tests/expected_output.txt
+               ${CMAKE_BINARY_DIR}/expected_output.txt COPYONLY)
 # Link libraries if needed
 # target_link_libraries(test_main PRIVATE your_library_name)
 
