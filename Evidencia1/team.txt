@@ -1,3 +1,0 @@
-Oscar Arreola (A01178076) : Longest substring
-Mariana Amy Martínez (A00836245) : Longest palindrome
-Alejandra Coeto (A01285221) : KMP
