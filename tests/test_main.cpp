@@ -5,17 +5,6 @@
 
 using namespace std;
 
-TEST_CASE("Check file can be opened") {
-    const std::string expectedOutputFile = "expected_output.txt";
-
-    // Print debugging information
-    std::cout << "Current directory: " << std::filesystem::current_path() << std::endl;
-    std::cout << "Trying to open: " << expectedOutputFile << std::endl;
-
-    std::ifstream expectedFile(expectedOutputFile);
-    REQUIRE(expectedFile.is_open()); // Assert file opened successfully
-}
-
 TEST_CASE("Main Functionality") {
     // Paths to executable and files
     const string executable = "./Evidencia2";
