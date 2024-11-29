@@ -37,6 +37,6 @@ int main() {
 
     cout << "3. Max Flow: ";
     cout << algorithms::maxflow(0, n-1, graph, capacity) << endl;
-
+    
     return 0;
 }
