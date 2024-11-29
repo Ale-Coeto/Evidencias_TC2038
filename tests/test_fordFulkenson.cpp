@@ -4,13 +4,13 @@
 
 TEST_CASE("MaxFlow Algorithm") {
     SECTION("Case 1: Simple Graph") {
-        vector<vii> graph = {
+        vector<vector<pair<int,int>>> graph = {
             {{1, 10}, {2, 10}},
             {{2, 2}, {3, 4}},
             {{1, 6}, {3, 6}},
             {}
         };
-        vector<vi> capacity = {
+        vector<vector<int>> capacity = {
             {0, 10, 10, 0},
             {0, 0,  2, 4},
             {0, 6,  0, 6},
@@ -21,13 +21,13 @@ TEST_CASE("MaxFlow Algorithm") {
     }
 
     SECTION("Case 2: Disconnected Graph") {
-        vector<vii> graph = {
+        vector<vector<pair<int,int>>> graph = {
             {{1, 10}},
             {},
             {},
             {}
         };
-        vector<vi> capacity = {
+        vector<vector<int>> capacity = {
             {0, 10, 0, 0},
             {0, 0, 0, 0},
             {0, 0, 0, 0},
@@ -38,13 +38,13 @@ TEST_CASE("MaxFlow Algorithm") {
     }
 
     SECTION("Case 3: Graph with Multiple Paths") {
-        vector<vii> graph = {
+        vector<vector<pair<int,int>>> graph = {
             {{1, 10}, {2, 10}},
             {{3, 4}},
             {{3, 6}},
             {}
         };
-        vector<vi> capacity = {
+        vector<vector<int>> capacity = {
             {0, 10, 10, 0},
             {0, 0,  0, 4},
             {0, 0,  0, 6},
