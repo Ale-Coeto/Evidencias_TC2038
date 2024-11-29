@@ -16,7 +16,9 @@ TEST_CASE("MaxFlow Algorithm") {
             {0, 6,  0, 6},
             {0, 0,  0, 0}
         };
-
+        
+        vector<int> parent(graph.size());
+        algorithms::bfs(0, 3, parent, graph, capacity);
         REQUIRE(algorithms::maxflow(0, 3, graph, capacity) == 10);
     }
 
