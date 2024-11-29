@@ -53,28 +53,26 @@ TEST_CASE("MaxFlow Algorithm") {
 
         REQUIRE(algorithms::maxflow(0, 3, graph, capacity) == 10);
     }
-};
 
-TEST_CASE("BFS in MaxFlow Algorithm") {
+    SECTION("BFS") {
+        vector<vector<pair<int, int>>> graph = {
+            {{2, 10}, {1, 10}}, 
+            {{2, 2}, {3, 4}}, 
+            {{1, 6}, {3, 6}},  
+            {}                  
+        };
 
-    vector<vector<pair<int, int>>> graph = {
-        {{2, 10}, {1, 10}}, 
-        {{2, 2}, {3, 4}}, 
-        {{1, 6}, {3, 6}},  
-        {}                  
-    };
+        vector<vector<int>> capacity = {
+            {0, 10, 10, 0},  
+            {0, 0,  2, 4}, 
+            {0, 6,  0, 6}, 
+            {0, 0,  0, 0}    
+        };
 
-    vector<vector<int>> capacity = {
-        {0, 10, 10, 0},  
-        {0, 0,  2, 4}, 
-        {0, 6,  0, 6}, 
-        {0, 0,  0, 0}    
-    };
-
-    vector<int> parent(graph.size());
-    int flow = algorithms::bfs(0, 3, parent, graph, capacity);
-    REQUIRE(flow == 6);
-    REQUIRE(parent[3] == 2);
-    REQUIRE(parent[2] == 0); 
-    
-};
+        vector<int> parent(graph.size());
+        int flow = algorithms::bfs(0, 3, parent, graph, capacity);
+        REQUIRE(flow == 6);
+        REQUIRE(parent[3] == 2);
+        REQUIRE(parent[2] == 0); 
+    }
+}
