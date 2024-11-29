@@ -1,3 +1,23 @@
+/*
+ * SonarQube, open source software quality management tool.
+ * Copyright (C) 2008-2013 SonarSource
+ * http://github.com/SonarOpenCommunity/sonar-cxx
+ *
+ * SonarQube is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * SonarQube is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 #ifndef FORD_FULKENSON
 #define FORD_FULKENSON
 
@@ -6,18 +26,18 @@
 #include <queue>
 
 using namespace std;
-typedef pair<int,int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
 #define INF 10000000
 
+/**
+    Algoritmo de Ford Fulkenson para encontrar el flujo máximo en un grafo
+ */
 namespace algorithms {
 
-    /*
+    /**
         BFS para encontrar augmenting paths
         Complejidad: O(e), donde e = número de edges
     */
-    int bfs(int s, int t, vi & parent, vector<vii> & graph, vector<vi> & capacity) {
+    int bfs(int s, int t, vector<int> & parent, vector<vector<pair<int,int>>> & graph, vector<vector<int>> & capacity) {
         fill(parent.begin(), parent.end(), -1);
         parent[s] = -2;
         queue<pair<int, int>> q;
@@ -28,7 +48,7 @@ namespace algorithms {
             int flow = q.front().second;
             q.pop();
 
-            for (ii next : graph[cur]) {
+            for (pair<int,int> next : graph[cur]) {
                 if (parent[next.first] == -1 && capacity[cur][next.first]) {
                     parent[next.first] = cur;
                     int new_flow = min(flow, capacity[cur][next.first]);
@@ -42,12 +62,13 @@ namespace algorithms {
         return 0;
     }
 
-    /*
+    /** 
+        Algoritmo de Ford Fulkenson
         Complejidad: O(fe), donde f = max flow y e = número de edges
     */
-    int maxflow(int s, int t, vector<vii> & graph, vector<vi> & capacity) {
+    int maxflow(int s, int t, vector<vector<pair<int,int>>> & graph, vector<vector<int>> & capacity) {
         int flow = 0;
-        vi parent(graph.size());
+        vector<int> parent(graph.size());
         int new_flow;
 
         while ((new_flow = bfs(s, t, parent, graph, capacity))) {

@@ -1,3 +1,8 @@
+/*
+ * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
+ * Última modificación: Domingo 29 de Noviembre
+ */
+
 #include <iostream>
 #include <vector>
 #include "FordFulkenson.h"
@@ -43,6 +48,6 @@ int main() {
 
     cout << "3. Max Flow: ";
     cout << algorithms::maxflow(0, n-1, graph, capacity) << endl;
-
+    
     return 0;
 }
