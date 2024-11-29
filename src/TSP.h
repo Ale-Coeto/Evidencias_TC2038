@@ -1,3 +1,8 @@
+/*
+ * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
+ * Última modificación: Domingo 29 de Noviembre
+ */
+
 #include "libs.h"
 
 using namespace std;
