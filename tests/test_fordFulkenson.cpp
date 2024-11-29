@@ -70,7 +70,6 @@ TEST_CASE("MaxFlow Algorithm") {
         };
 
         vector<int> parent(graph.size());
-        int flow = algorithms::bfs(0, 3, parent, graph, capacity);
-        REQUIRE(flow == 6);
+        REQUIRE(algorithms::bfs(0, 3, parent, graph, capacity) == 6);
     }
 }
