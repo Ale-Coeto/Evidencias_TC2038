@@ -53,7 +53,7 @@ TEST_CASE("MaxFlow Algorithm") {
 
         REQUIRE(algorithms::maxflow(0, 3, graph, capacity) == 10);
     }
-}
+};
 
 TEST_CASE("BFS in MaxFlow Algorithm") {
 
@@ -77,4 +77,4 @@ TEST_CASE("BFS in MaxFlow Algorithm") {
     REQUIRE(parent[3] == 2);
     REQUIRE(parent[2] == 0); 
     
-}
+};
