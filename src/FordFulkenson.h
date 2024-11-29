@@ -18,7 +18,7 @@ using namespace std;
  */
 namespace algorithms {
 
-    /*
+    /**
         BFS para encontrar augmenting paths
         Complejidad: O(e), donde e = número de edges
     */
