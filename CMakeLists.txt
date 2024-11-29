@@ -13,6 +13,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(SOURCES 
     src/main.cpp
     src/FordFulkenson.h
+    src/TSP.h
+    src/LinearSearch.h
 )
 
 # Eexecutable target
@@ -34,6 +36,8 @@ FetchContent_MakeAvailable(Catch2)
 set(TEST_FILES
     tests/test_main.cpp
     tests/test_fordFulkenson.cpp
+    tests/test_tsp.cpp
+    tests/test_central.cpp
 )
 
 # Test executable
