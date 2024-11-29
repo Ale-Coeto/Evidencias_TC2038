@@ -72,13 +72,9 @@ TEST_CASE("BFS in MaxFlow Algorithm") {
     };
 
     vector<int> parent(graph.size());
-
-    SECTION("Path Exists") {
-        int flow = algorithms::bfs(0, 3, parent, graph, capacity);
-
-
-        REQUIRE(flow == 6);
-        REQUIRE(parent[3] == 2);
-        REQUIRE(parent[2] == 0); 
-    }
+    int flow = algorithms::bfs(0, 3, parent, graph, capacity);
+    REQUIRE(flow == 6);
+    REQUIRE(parent[3] == 2);
+    REQUIRE(parent[2] == 0); 
+    
 }
