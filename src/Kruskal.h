@@ -15,16 +15,13 @@ using namespace std;
 #define INF 10000000
 
 /**
-  class Edge
-
-    Used to represent edges in the adjacency graph.
-
+  class Edge represents an edge in a graph
  */
 struct Edge
 {
-    int first;  // The first element
-    int second; // The second element
-    int weight; // The edge weight
+    int first;  /// The first element
+    int second; /// The second element
+    int weight; /// The edge weight
     Edge(int f, int s, int w)
     {
         this->first = f;
@@ -33,6 +30,9 @@ struct Edge
     }
 };
 
+/**
+  Overload the < operator for the Edge class
+ */
 bool operator<(const Edge &a, const Edge &b) {
     return a.weight < b.weight;
 }
@@ -40,6 +40,9 @@ bool operator<(const Edge &a, const Edge &b) {
 namespace algorithms
 {
 
+    /**
+        class DSU represents a Disjoint Set Union data structure
+     */
     class DSU
     {
         int *parent;
@@ -92,6 +95,10 @@ namespace algorithms
         }
     };
 
+    /**
+        Kruskal's algorithm to find the minimum spanning tree of a graph
+        Time complexity: O(E log E)
+     */
     vector<pair<int, int> > kruskal(int size, vector<Edge> &edges)
     {
         sort(edges.begin(), edges.end());
