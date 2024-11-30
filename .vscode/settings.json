@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "iostream": "cpp"
+    },
+    "sonarlint.connectedMode.project": {
+        "connectionId": "https://sonarqube.felipecastillorendon.online",
+        "projectKey": "ActInt2-Equipo3-AD2024"
     }
 }
