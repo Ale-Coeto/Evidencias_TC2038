@@ -33,7 +33,7 @@ struct Edge
     }
 };
 
-bool operator<(const edge &a, const edge &b) {
+bool operator<(const Edge &a, const Edge &b) {
     return a.weight < b.weight;
 }
 

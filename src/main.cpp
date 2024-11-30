@@ -22,7 +22,7 @@ int main() {
     vector<vector<pair<int,int>>> graph(n);
     vector<vector<int>> cost(n, vector<int>(n, 0));
     vector<vector<int>> capacity(n, vector<int>(n, 0));
-    vector<edge> edges;
+    vector<Edge> edges;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -30,7 +30,7 @@ int main() {
             if(i != j && a > 0) 
                 graph[i].pb({j, a});
             if (i > j ) {
-                edges.pb(edge(i, j, a));
+                edges.pb(Edge(i, j, a));
             }
             cost[i][j] = a;
         }
