@@ -1,1 +1,13 @@
-3. Max Flow: 78
+1. Kruskal: 
+(D, C)
+(B, A)
+(C, B)
+
+2. TSP: 
+A B C D A 
+
+3. Max Flow: 
+78
+
+4. Closest Central: 
+(450, 150)
