@@ -49,6 +49,9 @@ namespace algorithms
         int *rank;
 
     public:
+    /**
+     * Constructor for the DSU class
+     */
         DSU(int n)
         {
             parent = new int[n];

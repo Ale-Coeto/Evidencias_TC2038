@@ -15,9 +15,52 @@ using namespace std;
 
 #define pb push_back
 
+void call_kruskal(int & n, vector<Edge> & edges) {
+    cout << "1. Kruskal: " << endl;
+    for (pair<int,int> i : algorithms::kruskal(n, edges)){
+        char ac = i.first + 'A';
+        char bc = i.second + 'A';
+        cout << '(' << ac << ", " << bc << ')' << endl;
+    }
+}
+
+void call_tsp(vector<vector<int>> & cost) {
+    cout << "\n2. TSP: " << endl;
+    vector<char> path = algorithms::shortest_route(cost);
+    for (auto stop : path) {
+        cout << stop << " ";
+    }
+    cout << "\n";
+}
+
+void call_maxflow(int & n, vector<vector<pair<int,int>>> & graph, vector<vector<int>> & capacity) {
+    cout << "\n3. Max Flow: \n";
+    cout << algorithms::maxflow(0, n-1, graph, capacity) << endl;
+}
+
+void call_central(int & n) {
+    int a, b;
+    char x;
+    cout << "\n4. Closest Central: " << endl;
+    vector<pair<int, int> > centrals;
+    
+    for (int i = 0; i < n; i++) {
+        cin >> x >> a >> x >> b >> x;
+        centrals.pb({a,b});
+    }
+
+    pair<int,int> target;
+    cin >> x >> target.first >> x >> target.second >> x;
+    vector<pair<int, int> > res = algorithms::closest_central(centrals, target);
+
+    for (auto x : res)
+    {
+        cout << "(" << x.first << ", " << x.second << ")\n";
+    }
+}
+
 int main() {
     int n, a, b;
-    char x;
     cin >> n;
     vector<vector<pair<int,int>>> graph(n);
     vector<vector<int>> cost(n, vector<int>(n, 0));
@@ -43,39 +86,10 @@ int main() {
         }
     }
 
-    cout << "1. Kruskal: " << endl;
-    for (pair<int,int> i : algorithms::kruskal(n, edges)){
-        char ac = i.first + 'A';
-        char bc = i.second + 'A';
-        cout << '(' << ac << ", " << bc << ')' << endl;
-    }
-
-    cout << "\n2. TSP: " << endl;
-    vector<char> path = algorithms::shortest_route(cost);
-    for (auto stop : path) {
-        cout << stop << " ";
-    }
-    cout << "\n";
-
-    cout << "\n3. Max Flow: \n";
-    cout << algorithms::maxflow(0, n-1, graph, capacity) << endl;
-
-    cout << "\n4. Closest Central: " << endl;
-    vector<pair<int, int> > centrals;
+    call_kruskal(n, edges);
+    call_tsp(cost);
+    call_maxflow(n, graph, capacity);
+    call_central(n);
     
-    for (int i = 0; i < n; i++) {
-        cin >> x >> a >> x >> b >> x;
-        centrals.pb({a,b});
-    }
-
-    pair<int,int> target;
-    cin >> x >> target.first >> x >> target.second >> x;
-    vector<pair<int, int> > res = algorithms::closest_central(centrals, target);
-
-    for (auto x : res)
-    {
-        cout << "(" << x.first << ", " << x.second << ")\n";
-    }
-
     return 0;
 }
