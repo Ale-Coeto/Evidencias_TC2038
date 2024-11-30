@@ -1,3 +1,8 @@
+
+/*
+ * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
+ * Última modificación: Domingo 29 de Noviembre
+ */
 #ifndef KRUSKAL
 #define KRUSKAL
 
@@ -6,9 +11,6 @@
 #include <algorithm>
 
 using namespace std;
-typedef pair<int,int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
 #define INF 10000000
 
 struct edge{
@@ -74,9 +76,9 @@ namespace algorithms {
         } 
     }; 
 
-    vii kruskal(int size, vector<edge> &edges){
+    vector<pair<int,int>> kruskal(int size, vector<edge> &edges){
         sort(edges.begin(), edges.end());
-        vii answer;
+        vector<pair<int,int>> answer;
         DSU s(size);
         for (auto edge : edges) {
             if (s.find(edge.first) != s.find(edge.second)) { 
