@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "libs.h"
 
 using namespace std;
 #define INF 10000000
@@ -32,8 +33,7 @@ struct Edge
     }
 };
 
-bool operator<(Edge &a, Edge &b)
-{
+bool operator<(const edge &a, const edge &b) {
     return a.weight < b.weight;
 }
 
