@@ -1,3 +1,9 @@
+
+/*
+ * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
+ * Última modificación: Domingo 29 de Noviembre
+ */
+
 #include "../src/TSP.h"
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>

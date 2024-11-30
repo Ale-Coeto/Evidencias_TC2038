@@ -13,18 +13,21 @@
 using namespace std;
 #define INF 10000000
 
-struct edge{
+struct edge
+{
     int first;
     int second;
     int weight;
-    edge(int f, int s, int w){
+    edge(int f, int s, int w)
+    {
         this->first = f;
         this->second = s;
         this->weight = w;
     }
 };
 
-bool operator<(edge& a, edge& b){
+bool operator<(edge &a, edge &b)
+{
     return a.weight < b.weight;
 }
 
@@ -80,12 +83,14 @@ namespace algorithms {
         sort(edges.begin(), edges.end());
         vector<pair<int,int>> answer;
         DSU s(size);
-        for (auto edge : edges) {
-            if (s.find(edge.first) != s.find(edge.second)) { 
-                s.unite(edge.first, edge.second); 
+        for (auto edge : edges)
+        {
+            if (s.find(edge.first) != s.find(edge.second))
+            {
+                s.unite(edge.first, edge.second);
                 answer.push_back(pair(edge.first, edge.second));
             }
-        } 
+        }
         return answer;
     }
 }
