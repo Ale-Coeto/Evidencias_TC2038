@@ -10,7 +10,18 @@ using namespace std;
 
 namespace algorithms
 {
-    int routeCost(int node, int mask, vector<vector<int> > &cost, vector<vector<int> > &dp, vector<vector<int> > &path)
+
+    /**
+     Top-down dp to compute results for the TSP probelm.
+     node: Current node to visit
+     mask: nodes visited until the moment
+     cost: matrix containing costs of connections
+     dp: store results for subproblems. Use [node][mask] as state
+     path: store results for nodes visited
+
+     Time complexity : O(n * n * 2 ^ n)
+    */
+    int route_cost(int node, int mask, vector<vector<int> > &cost, vector<vector<int> > &dp, vector<vector<int> > &path)
     {
         int n = cost.size();
 
@@ -21,6 +32,8 @@ namespace algorithms
             return cost[node][0];
         }
 
+        // If answer was already computed, skip calculations
+
         if (dp[node][mask] != -1)
             return dp[node][mask];
 
@@ -30,7 +43,7 @@ namespace algorithms
         {
             if (!(mask & 1 << i))
             {
-                int possibleCost = cost[node][i] + routeCost(i, mask | (1 << i), cost, dp, path);
+                int possibleCost = cost[node][i] + route_cost(i, mask | (1 << i), cost, dp, path);
                 if (possibleCost < visitCost)
                 {
                     visitCost = possibleCost;
@@ -38,15 +51,13 @@ namespace algorithms
                 }
             }
         }
-
+        // Save and return the result
         return dp[node][mask] = visitCost;
     }
 
-    vector<char> getPath(vector<vector<int> > &path, int n)
+    vector<char> get_path(vector<vector<int> > &path, int n)
     {
         vector<char> charPath{'A'};
-
-        cout << "N: " << n << "\n";
 
         if (n == 1)
             return charPath;
@@ -63,15 +74,15 @@ namespace algorithms
         return charPath;
     }
 
-    vector<char> shortestRoute(vector<vector<int> > &cost)
+    vector<char> shortest_route(vector<vector<int> > &cost)
     {
         int n = cost.size();
         vector<vector<int> > dp(n, vector<int>(pow(2, n), -1));
         vector<vector<int> > path = dp;
 
-        cout << "Mincost: " << routeCost(0, 1, cost, dp, path) << "\n";
+        route_cost(0, 1, cost, dp, path);
 
-        return getPath(path, n);
+        return get_path(path, n);
     }
 }
 
@@ -93,7 +104,7 @@ namespace algorithms
 //                                  {15, 35, 0, 30},
 //                                  {20, 25, 30, 0}};
 
-//     vector<char> path = algorithms::shortestRoute(cost);
+//     vector<char> path = algorithms::shortest_route(cost);
 
 //     for (auto stop : path)
 //     {

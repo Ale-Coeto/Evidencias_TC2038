@@ -17,7 +17,7 @@ TEST_CASE("TSP Algorithm")
                                      {45, 18, 0, 7},
                                      {32, 21, 7, 0}};
         vector<char> path = {'A', 'B', 'C', 'D', 'A'};
-        REQUIRE(algorithms::shortestRoute(cost) == path);
+        REQUIRE(algorithms::shortest_route(cost) == path);
     }
 
     SECTION("Case 2: graph with 4 cities")
@@ -29,7 +29,7 @@ TEST_CASE("TSP Algorithm")
 
         vector<char> path = {'A', 'B', 'D', 'C', 'A'};
 
-        REQUIRE(algorithms::shortestRoute(cost) == path);
+        REQUIRE(algorithms::shortest_route(cost) == path);
     }
 
     SECTION("Case 3: Graph with single city")
@@ -40,7 +40,7 @@ TEST_CASE("TSP Algorithm")
 
         vector<char> path = {'A'};
 
-        REQUIRE(algorithms::shortestRoute(cost) == path);
+        REQUIRE(algorithms::shortest_route(cost) == path);
     }
 
     SECTION("Case 4: Graph with 2 cities")
@@ -53,6 +53,6 @@ TEST_CASE("TSP Algorithm")
             'B',
             'A'};
 
-        REQUIRE(algorithms::shortestRoute(cost) == path);
+        REQUIRE(algorithms::shortest_route(cost) == path);
     }
 }
