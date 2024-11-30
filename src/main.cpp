@@ -47,17 +47,17 @@ int main() {
     for (pair<int,int> i : algorithms::kruskal(n, edges)){
         char ac = i.first + 'A';
         char bc = i.second + 'A';
-        cout << ac << " " << bc << endl;
+        cout << '(' << ac << ", " << bc << ')' << endl;
     }
 
     cout << "\n2. TSP: " << endl;
-    vector<char> path = algorithms::shortestRoute(cost);
+    vector<char> path = algorithms::shortest_route(cost);
     for (auto stop : path) {
         cout << stop << " ";
     }
     cout << "\n";
 
-    cout << "\n3. Max Flow: ";
+    cout << "\n3. Max Flow: \n";
     cout << algorithms::maxflow(0, n-1, graph, capacity) << endl;
 
     cout << "\n4. Closest Central: " << endl;
@@ -65,16 +65,13 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         cin >> x >> a >> x >> b >> x;
-        cout << a << "  " << b << endl;
         centrals.pb({a,b});
     }
 
     pair<int,int> target;
     cin >> x >> target.first >> x >> target.second >> x;
-    cout << target.first << " " << target.second << endl;
     vector<pair<int, int> > res = algorithms::closest_central(centrals, target);
 
-    cout << "Centrales más cercanas: " << endl;
     for (auto x : res)
     {
         cout << "(" << x.first << ", " << x.second << ")\n";
