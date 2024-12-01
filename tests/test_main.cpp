@@ -1,3 +1,4 @@
+
 /*
  * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
  * Última modificación: Domingo 29 de Noviembre
@@ -10,7 +11,8 @@
 
 using namespace std;
 
-TEST_CASE("Main Functionality") {
+TEST_CASE("Main Functionality")
+{
     // Paths to executable and files
     const string executable = "./Evidencia2";
     const string tempOutputFile = "temp_output.txt";
@@ -25,14 +27,14 @@ TEST_CASE("Main Functionality") {
     ifstream tempFile(tempOutputFile);
     REQUIRE(tempFile.is_open());
     string tempOutput((istreambuf_iterator<char>(tempFile)),
-                            istreambuf_iterator<char>());
+                      istreambuf_iterator<char>());
 
     // // Read the expected output file
     ifstream expectedFile(expectedOutputFile);
     REQUIRE(expectedFile.is_open());
     string expectedOutput((istreambuf_iterator<char>(expectedFile)),
-                                istreambuf_iterator<char>());
-    
+                          istreambuf_iterator<char>());
+
     cout << "Temp Output: " << tempOutput << endl;
     // Compare the two outputs
     REQUIRE(tempOutput == expectedOutput);
