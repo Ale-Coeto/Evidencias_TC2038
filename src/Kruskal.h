@@ -19,7 +19,7 @@ using namespace std;
  */
 struct Edge
 {
-    int first;  /// The first element
+    int first;  ///< The first element
     int second; /// The second element
     int weight; /// The edge weight
     Edge(int f, int s, int w)
@@ -33,7 +33,8 @@ struct Edge
 /**
   Overload the < operator for the Edge class
  */
-bool operator<(const Edge &a, const Edge &b) {
+bool operator<(const Edge &a, const Edge &b)
+{
     return a.weight < b.weight;
 }
 
@@ -49,9 +50,9 @@ namespace algorithms
         int *rank;
 
     public:
-    /**
-     * Constructor for the DSU class
-     */
+        /**
+         * Constructor for the DSU class
+         */
         DSU(int n)
         {
             parent = new int[n];
@@ -64,20 +65,24 @@ namespace algorithms
             }
         }
 
-        // Find function
-        int find(int i)
+        /**
+            Giveen a node, return its group. Use path compression.
+         */
+        int Find(int i)
         {
             if (parent[i] == -1)
                 return i;
 
-            return parent[i] = find(parent[i]);
+            return parent[i] = Find(parent[i]);
         }
 
-        // Union function
-        void unite(int x, int y)
+        /**
+            Given 2 nodes, make them of the same group. Merge by rank.
+         */
+        void Unite(int x, int y)
         {
-            int s1 = find(x);
-            int s2 = find(y);
+            int s1 = Find(x);
+            int s2 = Find(y);
 
             if (s1 != s2)
             {
@@ -109,9 +114,9 @@ namespace algorithms
         DSU s(size);
         for (auto edge : edges)
         {
-            if (s.find(edge.first) != s.find(edge.second))
+            if (s.Find(edge.first) != s.Find(edge.second))
             {
-                s.unite(edge.first, edge.second);
+                s.Unite(edge.first, edge.second);
                 answer.push_back(pair(edge.first, edge.second));
             }
         }

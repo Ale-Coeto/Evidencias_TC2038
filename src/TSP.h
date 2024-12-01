@@ -12,7 +12,7 @@ namespace algorithms
 {
 
     /**
-     Top-down dp to compute results for the TSP probelm.
+     Top-down dp to compute results for the TSP problem.
      node: Current node to visit
      mask: nodes visited until the moment
      cost: matrix containing costs of connections
@@ -55,10 +55,18 @@ namespace algorithms
         return dp[node][mask] = visitCost;
     }
 
+    /**
+     Top-down dp to compute results for the TSP probelm.
+     path: the paths saved when computing the optimum solution.
+     n: the number of nodes in the graph.
+     Returns: a vector of characters indicating the order of cities. 'A' corresponds to the first city, 'B' to the second and so on.
+     Time complexity : O(n)
+    */
     vector<char> get_path(vector<vector<int> > &path, int n)
     {
         vector<char> charPath{'A'};
 
+        // Handle special case where there is only one city.
         if (n == 1)
             return charPath;
 
@@ -74,6 +82,10 @@ namespace algorithms
         return charPath;
     }
 
+    /**
+     Wrapper to solve the problem. First uses helper method to compute solution.
+     Then calls method to compute path in expected format.
+    */
     vector<char> shortest_route(vector<vector<int> > &cost)
     {
         int n = cost.size();
@@ -85,32 +97,3 @@ namespace algorithms
         return get_path(path, n);
     }
 }
-
-// int main()
-// {
-
-//     // vector<vector<int> > cost{
-//     //     {0, 48, 12, 18},
-//     //     {52, 0, 42, 32},
-//     //     {18, 46, 0, 56},
-//     //     {24, 36, 52, 0}};
-//     // vector<vector<int> > cost = {{0, 16, 45, 32},
-//     //                              {16, 0, 18, 21},
-//     //                              {45, 18, 0, 7},
-//     //                              {32, 21, 7, 0}};
-
-//     vector<vector<int> > cost = {{0, 10, 15, 20},
-//                                  {10, 0, 35, 25},
-//                                  {15, 35, 0, 30},
-//                                  {20, 25, 30, 0}};
-
-//     vector<char> path = algorithms::shortest_route(cost);
-
-//     for (auto stop : path)
-//     {
-//         cout << stop << " ";
-//     }
-//     cout << "\n";
-
-//     return 0;
-// }

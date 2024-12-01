@@ -8,8 +8,8 @@
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("TSP Algorithm") {
-    SECTION("Case 1: Sample input with 4 cities") {
+TEST_CASE("TSP Algorithm"){
+    SECTION("Case 1: Sample input with 4 cities"){
         std::vector<std::vector<int>> cost = {
             {0, 16, 45, 32},
             {16, 0, 18, 21},
@@ -21,7 +21,7 @@ TEST_CASE("TSP Algorithm") {
         REQUIRE(algorithms::shortest_route(cost) == expected_path);
     }
 
-    SECTION("Case 2: Another input with 4 cities") {
+    SECTION("Case 2: Another input with 4 cities"){
         std::vector<std::vector<int>> cost = {
             {0, 10, 15, 20},
             {10, 0, 35, 25},
@@ -33,7 +33,7 @@ TEST_CASE("TSP Algorithm") {
         REQUIRE(algorithms::shortest_route(cost) == expected_path);
     }
 
-    SECTION("Case 3: Graph with a single city") {
+    SECTION("Case 3: Graph with a single city"){
         std::vector<std::vector<int>> cost = {
             {0}
         };
@@ -42,7 +42,7 @@ TEST_CASE("TSP Algorithm") {
         REQUIRE(algorithms::shortest_route(cost) == expected_path);
     }
 
-    SECTION("Case 4: Graph with two cities") {
+    SECTION("Case 4: Graph with two cities"){
         std::vector<std::vector<int>> cost = {
             {0, 10000},
             {10000, 0}
