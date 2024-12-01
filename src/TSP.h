@@ -4,6 +4,9 @@
  * Última modificación: Domingo 29 de Noviembre
  */
 
+#ifndef TSP
+#define TSP
+
 #include "libs.h"
 
 using namespace std;
@@ -97,3 +100,5 @@ namespace algorithms
         return get_path(path, n);
     }
 }
+
+#endif

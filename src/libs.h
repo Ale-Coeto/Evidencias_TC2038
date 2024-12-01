@@ -4,6 +4,9 @@
  * Última modificación: Domingo 29 de Noviembre
  */
 
+#ifndef LIBS
+#define LIBS
+
 #include <algorithm>
 #include <bitset>
 #include <cmath>
@@ -29,3 +32,5 @@
 #include <vector>
 #include <unordered_set>
 #include <unordered_map>
+
+#endif

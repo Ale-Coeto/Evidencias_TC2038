@@ -3,6 +3,7 @@
  * Oscar Arreola (A01178076), Mariana Amy Martínez (A00836245) y Alejandra Coeto (A01285221)
  * Última modificación: Domingo 29 de Noviembre
  */
+
 #ifndef KRUSKAL
 #define KRUSKAL
 
@@ -22,7 +23,7 @@ struct Edge
     int first;  ///< The first element
     int second; ///< The second element
     int weight; ///< The edge weight
-    
+
     /**
      constructor
      */

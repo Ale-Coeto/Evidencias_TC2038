@@ -4,6 +4,9 @@
  * Última modificación: Domingo 29 de Noviembre
  */
 
+#ifndef LINEAR_SEARCH
+#define LINEAR_SEARCH
+
 #include "libs.h"
 using namespace std;
 
@@ -50,6 +53,8 @@ namespace algorithms
         return closest;
     }
 }
+
+#endif
 
 // int main()
 // {
