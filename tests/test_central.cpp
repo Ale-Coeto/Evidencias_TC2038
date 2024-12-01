@@ -8,6 +8,8 @@
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>
 
+using namespace std;
+
 TEST_CASE("Closest Central Algorithm"){
     SECTION("Case 1: Teacher's sample input"){
         vector<pair<int, int> > centrals{{200, 500}, {300, 100}, {450, 150}, {520, 480}};

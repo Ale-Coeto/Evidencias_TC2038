@@ -8,6 +8,8 @@
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>
 
+using namespace std;
+
 TEST_CASE("TSP Algorithm"){
     SECTION("Case 1: Sample input with 4 cities"){
         std::vector<std::vector<int>> cost = {

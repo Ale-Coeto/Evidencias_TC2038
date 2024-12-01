@@ -20,8 +20,13 @@ using namespace std;
 struct Edge
 {
     int first;  ///< The first element
-    int second; /// The second element
-    int weight; /// The edge weight
+    int second; ///< The second element
+    int weight; ///< The edge weight
+    
+    /**
+     constructor
+     */
+
     Edge(int f, int s, int w)
     {
         this->first = f;

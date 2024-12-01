@@ -7,6 +7,8 @@
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>
 
+using namespace std;
+
 TEST_CASE("Kruskal Algorithm"){
     SECTION("Case 1: Simple Graph"){
         vector<edge> edges = {
