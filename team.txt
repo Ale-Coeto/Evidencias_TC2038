@@ -1,0 +1,3 @@
+Oscar Arreola (A01178076) : Traveling salesman, Búsqueda lineal
+Mariana Amy Martínez (A00836245) : Kruskal's
+Alejandra Coeto (A01285221) : Ford Fulkenson
